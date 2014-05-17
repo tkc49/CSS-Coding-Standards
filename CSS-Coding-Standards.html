@@ -1,0 +1,1216 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+<meta charset="utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WordPress &#8250; CSS Coding Standards &laquo; Make WordPress Core</title>
+<link href="//s.w.org/wp-includes/css/dashicons.css?20140409" rel="stylesheet" type="text/css" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//s.w.org/style/wp4.css?13" />
+<link media="only screen and (max-device-width: 480px)" href="//s.w.org/style/iphone.css?1" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//s.w.org/favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-52447-1']);
+_gaq.push(['_setDomainName', 'wordpress.org']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+function recordOutboundLink(link, category, action) {
+	_gaq.push(['_trackEvent', category, action])
+	setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//s.w.org/style/ie.css?1");
+</style>
+<![endif]-->
+<link rel="pingback" href="http://make.wordpress.org/core/xmlrpc.php" />		<script type="text/javascript">
+			// <![CDATA[
+
+			// P2 Configuration
+			var ajaxUrl                 = "http://make.wordpress.org/core/wp-admin/admin-ajax.php?p2ajax=true";
+			var ajaxReadUrl             = "http://make.wordpress.org/core/feed/p2.ajax/?p2ajax=true";
+			var updateRate              = "30000"; // 30 seconds
+			var nonce                   = "fa90a5d947";
+			var login_url               = "https://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F";
+			var templateDir             = "http://make.wordpress.org/core/wp-content/themes/p2";
+			var isFirstFrontPage        = 0;
+			var isFrontPage             = 0;
+			var isSingle                = 1;
+			var isPage                  = 0;
+			var isUserLoggedIn          = 0;
+			var prologueTagsuggest      = 1;
+			var prologuePostsUpdates    = 1;
+			var prologueCommentsUpdates = 1;
+			var getPostsUpdate          = 0;
+			var getCommentsUpdate       = 0;
+			var inlineEditPosts         = 1;
+			var inlineEditComments      = 1;
+			var wpUrl                   = "http://make.wordpress.org/core";
+			var rssUrl                  = "";
+			var pageLoadTime            = "2014-05-17 05:09:05";
+			var commentsOnPost          = new Array;
+			var postsOnPage             = new Array;
+			var postsOnPageQS           = '';
+			var currPost                = -1;
+			var currComment             = -1;
+			var commentLoop             = false;
+			var lcwidget                = false;
+			var hidecomments            = false;
+			var commentsLists           = '';
+			var newUnseenUpdates        = 0;
+			var mentionData             = null;
+			var p2CurrentVersion        = 3;
+			var p2StoredVersion         = 3;
+			// ]]>
+		</script>
+<link rel="alternate" type="application/rss+xml" title="Make WordPress Core &raquo; Feed" href="http://make.wordpress.org/core/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Make WordPress Core &raquo; Comments Feed" href="http://make.wordpress.org/core/comments/feed/" />
+		<script type="text/javascript">
+		//<![CDATA[
+		var wpLocale = {"month":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthabbrev":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekday":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdayabbrev":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]};
+		//]]>
+		</script>
+		<link rel="alternate" type="application/rss+xml" title="Make WordPress Core &raquo; CSS Coding Standards Comments Feed" href="http://make.wordpress.org/core/handbook/coding-standards/css/feed/" />
+<link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.0-alpha' type='text/css' media='all' />
+<link rel='stylesheet' id='admin-bar-css'  href='http://make.wordpress.org/core/wp-includes/css/admin-bar.min.css?ver=4.0-alpha' type='text/css' media='all' />
+<link rel='stylesheet' id='make-core-trac-css'  href='http://make.wordpress.org/core/wp-content/plugins/trac-notifications/make-core.css?ver=3' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack-widgets-css'  href='http://make.wordpress.org/core/wp-content/plugins/jetpack/modules/widgets/widgets.css?ver=20121003' type='text/css' media='all' />
+<link rel='stylesheet' id='p2-css'  href='http://make.wordpress.org/core/wp-content/themes/p2/style.css?ver=4.0-alpha' type='text/css' media='all' />
+<link rel='stylesheet' id='p2-print-style-css'  href='http://make.wordpress.org/core/wp-content/themes/p2/style-print.css?ver=20120807' type='text/css' media='print' />
+<link rel='stylesheet' id='wporg-p2-css'  href='http://make.wordpress.org/core/wp-content/themes/pub/wporg-p2/style.css?ver=2014-05-14' type='text/css' media='all' />
+<link rel='stylesheet' id='p2-iphone-style-css'  href='http://make.wordpress.org/core/wp-content/themes/p2/style-iphone.css?ver=20120402' type='text/css' media='(max-width: 320px)' />
+<link rel='stylesheet' id='sharedaddy-css'  href='http://make.wordpress.org/core/wp-content/plugins/jetpack/modules/sharedaddy/sharing.css?ver=2.4.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/jquery/jquery.color.min.js?ver=2.1.1'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/comment-reply.min.js?ver=4.0-alpha'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var userSettings = {"url":"\/","uid":"0","time":"1400303345"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/utils.min.js?ver=4.0-alpha'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/themes/p2/js/jquery.scrollTo-min.js?ver=20120402'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/themes/p2/js/wp-locale.js?ver=20130819'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/themes/p2/js/spin.js?ver=20120704'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var p2txt = {"tags":"<br \/>Tags:","tagit":"Tag it","citation":"Citation","title":"Post Title","goto_homepage":"Go to homepage","n_new_updates":"%d new update(s)","n_new_comments":"%d new comment(s)","jump_to_top":"Jump to top","not_posted_error":"An error has occurred, your post was not posted","update_posted":"Your update has been posted","loading":"Loading...","cancel":"Cancel","save":"Save","hide_threads":"Hide threads","show_threads":"Show threads","unsaved_changes":"Your comments or posts will be lost if you continue.","date_time_format":"%1$s <em>on<\/em> %2$s","date_format":"F j, Y","time_format":"g:i a","autocomplete_prompt":"After typing @, type a name or username to find a member of this site","no_matches":"No matches.","comment_cancel_ays":"Are you sure you would like to clear this comment? Its contents will be deleted.","oops_not_logged_in":"Oops! Looks like you are not logged in.","please_log_in":"Please log in again","whoops_maybe_offline":"Whoops! Looks like you are not connected to the server. P2 could not connect with WordPress.","required_filed":"This field is required."};
+try{convertEntities(p2txt);}catch(e){};;
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/themes/p2/js/p2.js?ver=20131101'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://make.wordpress.org/core/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://make.wordpress.org/core/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Researching Code History With SVN Annotate' href='http://make.wordpress.org/core/handbook/svn/code-history/' />
+<link rel='next' title='Automated Testing' href='http://make.wordpress.org/core/handbook/automated-testing/' />
+<meta name="generator" content="WordPress 4.0-alpha" />
+<link rel='canonical' href='http://make.wordpress.org/core/handbook/coding-standards/css/' />
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CSS Coding Standards" />
+<meta property="og:url" content="http://make.wordpress.org/core/handbook/coding-standards/css/" />
+<meta property="og:description" content="Like any coding standard, the purpose of the WordPress CSS Coding Standards is to create a baseline for collaboration and review within various aspects of the WordPress open source project and comm..." />
+<meta property="og:site_name" content="Make WordPress Core" />
+<meta name="twitter:site" content="@jetpack" />
+<meta name="twitter:card" content="summary" />
+<style type="text/css">
+.is-js .hide-if-js {
+	display: none;
+}
+.p2-task-list ul {
+	margin-left: 0 !important;
+}
+.p2-task-list ul ul {
+	margin-left: 20px !important;
+}
+.p2-task-list li {
+	list-style: none;
+}
+</style>
+<script type="text/javascript">
+jQuery( function( $ ) {
+	$( 'body' )
+		.addClass( 'is-js' )
+		.delegate( '.p2-task-list :checkbox', 'click', function() {
+			var $this = $( this ),
+			    $li = $this.parents( 'li:first' ),
+			    $form = $this.parents( 'form:first' ),
+			    data = $li.find( ':input' ).serialize(),
+			    colorEl = $li, origColor = $li.css( 'background-color' ), color;
+
+			while ( colorEl.get(0).tagName && colorEl.css( 'background-color' ).match( /^\s*(rgba\s*\(\s*0+\s*,\s*0+\s*,\s*0+\s*,\s*0+\s*\)|transparent)\s*$/ ) ) {
+				colorEl = colorEl.parent();
+			}
+
+			color = colorEl.get(0).tagName ? colorEl.css( 'background-color' ) : '#ffffff';
+
+			data += '&ajax=1&' + $form.find( '.submit :input' ).serialize();
+
+			$.post( $form.attr( 'action' ), data, function( response ) {
+				if ( '1' === response )
+					$li.css( 'background-color', '#F6F3D1' ).animate( { backgroundColor: color }, 'slow', function() { $li.css( 'background-color', origColor ); } );
+			} );
+	} );
+} );
+</script>
+	<style id="p2-header-style" type="text/css">
+		</style>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+/* <![CDATA[ */
+	var wpNotesIsJetpackClient = true;
+/* ]]> */
+</script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<script type="text/javascript">
+var toggleMenu = function(){
+    var m = document.getElementById('wporg-header-menu'),
+        c = m.className;
+	    m.className = c.match( ' active' ) ? c.replace( ' active', '' ) : c + ' active';
+}
+</script>
+</head>
+
+<body id="wordpress-org" class="single single-handbook postid-4082 admin-bar no-customize-support wporg-make make-core">
+<div id="wporg-header">
+	<div class="wrapper">
+	<a id="mobile-menu-button" class="" href="#" onclick="toggleMenu();"></a>
+	<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="//wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul id="wporg-header-menu">
+<li><a href='//wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='//wordpress.org/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='//wordpress.org/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='//wordpress.org/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='//wordpress.org/support/' title='Forums, documentation, help.'>Support</a><ul class="nav-submenu"><li><a href='//wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='//codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='//make.wordpress.org/' title='Contribute your knowledge.' class="current">Get Involved</a><div class="uparrow"></div></li>
+<li><a href='//wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='//wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='//wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='//wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+<div id="download-mobile">
+    <div class="wrapper">
+        <span class="download-ready">Ready to get started?</span><a class="button download-button" href="//wordpress.org/download/" title="Get it. Got it? Good.">Download WordPress</a>
+    </div>
+</div>
+
+<div id="headline">
+        <div class="wrapper">
+                <h2><a href="http://make.wordpress.org/core/">Make WordPress Core</a></h2>
+				<div class="menu-makecore-nav-container"><ul id="menu-makecore-nav" class="menu"><li id="menu-item-5335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-5335"><a href="http://make.wordpress.org/core/">Blog</a></li>
+<li id="menu-item-5334" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-5334"><a href="http://make.wordpress.org/core/handbook/">Handbook</a></li>
+<li id="menu-item-8874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8874"><a href="http://make.wordpress.org/core/reports/">Tickets</a></li>
+<li id="menu-item-8875" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8875"><a href="http://make.wordpress.org/core/components/">Components</a></li>
+<li id="menu-item-8931" class="icon browser menu-item menu-item-type-custom menu-item-object-custom menu-item-8931"><a title="Browse Source" href="https://core.trac.wordpress.org/browser">Browse Source</a></li>
+<li id="menu-item-8932" class="icon timeline menu-item menu-item-type-custom menu-item-object-custom menu-item-8932"><a title="Trac Timeline" href="https://core.trac.wordpress.org/timeline">Trac Timeline</a></li>
+<li id="menu-item-8929" class="icon newticket menu-item menu-item-type-custom menu-item-object-custom menu-item-8929"><a title="Create a New Ticket" href="https://wordpress.org/support/bb-login.php?redirect_to=https://core.trac.wordpress.org/newticket">Create a New Ticket</a></li>
+</ul></div>		</div>
+</div>
+
+<div id="header2">
+	</div>
+
+
+<div id="wrapper">
+
+
+<!-- Also called on in footer but will not display the second time. -->
+	<div id="sidebar">
+				<ul>
+			<li id="nav_menu-4" class="widget widget_nav_menu"><h2 class="widgettitle">Chapters</h2>
+<div class="menu-table-of-contents-container"><ul id="menu-table-of-contents" class="menu"><li id="menu-item-5236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5236"><a title="About WordPress" href="#">About WordPress</a>
+<ul class="sub-menu">
+	<li id="menu-item-5309" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5309"><a title="Project Organization" href="http://make.wordpress.org/core/handbook/project-organization/">Project Organization</a></li>
+	<li id="menu-item-5310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5310"><a title="Our Philosophies" href="http://make.wordpress.org/core/handbook/our-philosophies/">Our Philosophies</a></li>
+	<li id="menu-item-5292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5292"><a title="Communication" href="http://make.wordpress.org/core/handbook/communication/">Communication</a></li>
+	<li id="menu-item-5313" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5313"><a title="How the Release Cycle Works" href="http://make.wordpress.org/core/handbook/how-the-release-cycle-works/">How the Release Cycle Works</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5316" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5316"><a title="Version Numbering" href="http://make.wordpress.org/core/handbook/how-the-release-cycle-works/version-numbering/">Version Numbering</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5311" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5311"><a title="Licensing and Copyright" href="http://make.wordpress.org/core/handbook/licensing-and-copyright/">Licensing and Copyright</a></li>
+	<li id="menu-item-9677" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-9677"><a href="http://make.wordpress.org/core/handbook/handbook/getting-started-at-a-contributor-day/">Getting Started at a Contributor Day</a></li>
+</ul>
+</li>
+<li id="menu-item-5241" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5241"><a title="Contribute With Testing" href="#">Contribute With Testing</a>
+<ul class="sub-menu">
+	<li id="menu-item-5296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5296"><a title="Beta Testing" href="http://make.wordpress.org/core/handbook/beta-testing/">Beta Testing</a></li>
+	<li id="menu-item-5293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5293"><a title="Reporting Bugs" href="http://make.wordpress.org/core/handbook/reporting-bugs/">Reporting Bugs</a></li>
+	<li id="menu-item-5295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5295"><a title="Reporting Security Vulnerabilities (FAQ)" href="http://make.wordpress.org/core/handbook/reporting-security-vulnerabilities/">Reporting Security Vulnerabilities</a></li>
+	<li id="menu-item-5312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5312"><a title="Bug Gardening" href="http://make.wordpress.org/core/handbook/bug-gardening/">Bug Gardening</a></li>
+	<li id="menu-item-5304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5304"><a title="Automated Testing" href="http://make.wordpress.org/core/handbook/automated-testing/">Automated Testing</a></li>
+</ul>
+</li>
+<li id="menu-item-5237" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5237"><a title="Contribute With Code" href="#">Contribute With Code</a>
+<ul class="sub-menu">
+	<li id="menu-item-5300" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5300"><a title="The WordPress Codebase" href="http://make.wordpress.org/core/handbook/the-wordpress-codebase/">The WordPress Codebase</a></li>
+	<li id="menu-item-5298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5298"><a title="Code Repository (SVN)" href="http://make.wordpress.org/core/handbook/svn/">Code Repository (SVN)</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5299" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5299"><a title="Researching Code History" href="http://make.wordpress.org/core/handbook/svn/code-history/">Researching Code History</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5297"><a title="The Bug Tracker (Trac)" href="http://make.wordpress.org/core/handbook/trac/">The Bug Tracker (Trac)</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5306"><a title="Trac Workflow Keywords" href="http://make.wordpress.org/core/handbook/trac/keywords/">Trac Workflow Keywords</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5301"><a title="Design Decisions" href="http://make.wordpress.org/core/handbook/design-decisions/">Design Decisions</a></li>
+	<li id="menu-item-5305" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5305"><a title="Fixing Bugs" href="http://make.wordpress.org/core/handbook/fixing-bugs/">Fixing Bugs</a></li>
+</ul>
+</li>
+<li id="menu-item-5245" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-5245"><a title="Best Practices" href="#">Best Practices</a>
+<ul class="sub-menu">
+	<li id="menu-item-5302" class="menu-item menu-item-type-post_type menu-item-object-page current-handbook-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-5302"><a title="Coding Standards" href="http://make.wordpress.org/core/handbook/coding-standards/">Coding Standards</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5303" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4082 current_page_item menu-item-5303"><a title="CSS Coding Standards" href="http://make.wordpress.org/core/handbook/coding-standards/css/">CSS Coding Standards</a></li>
+		<li id="menu-item-5330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5330"><a title="HTML Coding Standards" href="http://make.wordpress.org/core/handbook/coding-standards/html/">HTML Coding Standards</a></li>
+		<li id="menu-item-5331" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5331"><a title="JavaScript Coding Standards" href="http://make.wordpress.org/core/handbook/coding-standards/javascript/">JavaScript Coding Standards</a></li>
+		<li id="menu-item-5329" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5329"><a title="PHP Coding Standards" href="http://make.wordpress.org/core/handbook/coding-standards/php/">PHP Coding Standards</a></li>
+	</ul>
+</li>
+	<li id="menu-item-6456" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-has-children menu-item-6456"><a title="Inline Documentation Standards" href="http://make.wordpress.org/core/handbook/inline-documentation-standards/">Inline Documentation Standards</a>
+	<ul class="sub-menu">
+		<li id="menu-item-6457" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-6457"><a title="PHP Documentation Standards" href="http://make.wordpress.org/core/handbook/inline-documentation-standards/php-documentation-standards/">PHP Documentation Standards</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5349" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-5349"><a title="Core APIs" href="http://make.wordpress.org/core/handbook/core-apis/">Core APIs</a></li>
+	<li id="menu-item-5325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5325"><a title="Writing Patches (DRAFT)" href="http://make.wordpress.org/core/handbook/writing-patches/">Writing Patches</a></li>
+</ul>
+</li>
+<li id="menu-item-5250" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5250"><a title="Tutorials and Guides" href="#">Tutorials and Guides</a>
+<ul class="sub-menu">
+	<li id="menu-item-5315" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5315"><a title="Installing WordPress Locally" href="http://make.wordpress.org/core/handbook/installing-wordpress-locally/">Installing WordPress Locally</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5961" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-5961"><a title="Installing WordPress From A Zip File" href="http://make.wordpress.org/core/handbook/installing-wordpress-locally/installing-from-a-zip-file/">From A Zip File</a></li>
+		<li id="menu-item-5960" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-5960"><a title="Installing WordPress Via Subversion (SVN)" href="http://make.wordpress.org/core/handbook/installing-wordpress-locally/installing-via-svn/">Via Subversion (SVN)</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5327" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5327"><a title="Installing A Local Server" href="http://make.wordpress.org/core/handbook/installing-a-local-server/">Installing A Local Server</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5323"><a title="Installing DesktopServer" href="http://make.wordpress.org/core/handbook/installing-a-local-server/installing-desktopserver/">DesktopServer</a></li>
+		<li id="menu-item-5322" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5322"><a title="Installing MAMP" href="http://make.wordpress.org/core/handbook/installing-a-local-server/installing-mamp/">MAMP</a></li>
+		<li id="menu-item-5700" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-5700"><a title="Installing WampServer" href="http://make.wordpress.org/core/handbook/installing-a-local-server/installing-wampserver/">WampServer</a></li>
+		<li id="menu-item-5321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5321"><a title="Installing XAMPP" href="http://make.wordpress.org/core/handbook/installing-a-local-server/installing-xampp/">XAMPP</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5317"><a title="Installing A Version Control System" href="http://make.wordpress.org/core/handbook/installing-a-version-control-system/">Installing A Version Control System</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5320"><a title="Installing TortoiseSVN" href="http://make.wordpress.org/core/handbook/installing-a-version-control-system/installing-tortoisesvn/">TortoiseSVN</a></li>
+		<li id="menu-item-10333" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-10333"><a href="http://make.wordpress.org/core/handbook/installing-a-version-control-system/installing-svn-on-a-mac/">Installing SVN On A Mac</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5328"><a title="Working With Patches" href="http://make.wordpress.org/core/handbook/working-with-patches/">Working With Patches</a>
+	<ul class="sub-menu">
+		<li id="menu-item-5324" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5324"><a title="Create A Patch Using TortoiseSVN" href="http://make.wordpress.org/core/handbook/working-with-patches/create-a-patch-using-tortoisesvn/">Create A Patch Using TortoiseSVN</a></li>
+		<li id="menu-item-5319" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5319"><a title="Apply A Patch Using TortoiseSVN" href="http://make.wordpress.org/core/handbook/working-with-patches/apply-a-patch-using-tortoisesvn/">Apply A Patch Using TortoiseSVN</a></li>
+		<li id="menu-item-5959" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-5959"><a title="Patches With Command Line" href="http://make.wordpress.org/core/handbook/working-with-patches/patches-with-command-line/">Patches With Command Line</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5326"><a title="Working With Trac" href="http://make.wordpress.org/core/handbook/working-with-trac/">Working With Trac</a>
+	<ul class="sub-menu">
+		<li id="menu-item-7067" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-7067"><a title="Opening A Ticket" href="http://make.wordpress.org/core/handbook/working-with-trac/opening-a-ticket/">Opening A Ticket</a></li>
+		<li id="menu-item-5294" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5294"><a title="Submitting A Patch" href="http://make.wordpress.org/core/handbook/working-with-trac/submitting-a-patch/">Submitting A Patch</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-5246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5246"><a title="Other Ways To Contribute" href="#">Other Ways To Contribute</a>
+<ul class="sub-menu">
+	<li id="menu-item-5249" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5249"><a title="User Interface" href="http://make.wordpress.org/ui/">User Interface</a></li>
+	<li id="menu-item-5248" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5248"><a title="Accessibility" href="http://make.wordpress.org/accessibility/">Accessibility</a></li>
+	<li id="menu-item-5240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5240"><a title="Translations" href="http://make.wordpress.org/polyglots/">Translations</a></li>
+</ul>
+</li>
+<li id="menu-item-5242" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5242"><a href="#">References</a>
+<ul class="sub-menu">
+	<li id="menu-item-5430" class="menu-item menu-item-type-post_type menu-item-object-handbook menu-item-5430"><a href="http://make.wordpress.org/core/handbook/glossary/">Glossary</a></li>
+	<li id="menu-item-5243" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5243"><a title="Plugin Developer Handbook" href="http://make.wordpress.org/docs/plugin-developer-handbook/">Plugin Developer Handbook</a></li>
+	<li id="menu-item-5244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5244"><a title="Theme Developer Handbook" href="http://make.wordpress.org/docs/theme-developer-handbook/">Theme Developer Handbook</a></li>
+	<li id="menu-item-5238" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5238"><a title="Codex" href="http://codex.wordpress.org/">Codex</a></li>
+	<li id="menu-item-5239" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5239"><a title="WordPress.TV" href="http://wordpress.tv/">WordPress.TV</a></li>
+</ul>
+</li>
+</ul></div></li>
+		</ul>
+		<div class="clear"></div>
+	</div> <!-- // sidebar -->
+ 
+
+<div class="sleeve_main">
+
+	<div id="main">
+		<h2 class="handbook-page-title">CSS Coding Standards</h2>
+		
+			<ul id="postlist">
+							<li id="prologue-4082" class="post-4082 handbook type-handbook status-publish hentry">
+	<h6>
+		<span class="meta">
+			<span class="actions">
+				<a href="http://make.wordpress.org/core/handbook/coding-standards/css/" class="thepermalink printer-only" title="Permalink">Permalink</a>
+				<a rel="nofollow" href="https://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to leave a Comment</a>
+							</span>
+					</span>
+	</h6>
+
+	
+	<div id="content-4082" class="postcontent">
+	<style> .toc-jump { text-align: right; font-size: 12px; } .page .toc-heading { margin-top: -50px; padding-top: 50px !important; }</style><div class="table-of-contents"><h2>Topics</h2><ul class="items"><li><a href="#structure">Structure</a></li>
+<li><a href="#selectors">Selectors</a></li>
+<li><a href="#properties">Properties</a>
+<ul>
+<li><a href="#property-ordering">Property Ordering</a></li>
+<li><a href="#vendor-prefixes">Vendor Prefixes</a>
+</ul></li>
+<li><a href="#values">Values</a></li>
+<li><a href="#media-queries">Media Queries</a></li>
+<li><a href="#commenting">Commenting</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+<li><a href="#related-links">Related Links</a></ul>
+</div>
+<p>Like any coding standard, the purpose of the WordPress CSS Coding Standards is to create a baseline for collaboration and review within various aspects of the WordPress open source project and community, from core code to themes to plugins. Files within a project should appear as though created by a single entity. Above all else, create code that is readable, meaningful, consistent, and beautiful.</p>
+<p>Within core stylesheets, inconsistencies will often be found. We are working on addressing these and make every effort to have patches and commits from this point forward follow the CSS coding standards. More information on the above and contributing to UI/front-end development will be forthcoming in a separate set of guidelines.</p>
+<h2 class="toc-heading" id="structure">Structure <a href="#structure" class="anchor">#</a></h2>
+<p>There are plenty of different methods for structuring a stylesheet. With the CSS in core, it is important to retain a high degree of legibility. This enables subsequent contributors to have a clear understanding of the flow of the document.</p>
+<ul>
+<li>Use tabs, not spaces, to indent each property.</li>
+<li>Add two blank lines between sections and one blank line between blocks in a section.</li>
+<li>Each selector should be on its own line, ending in either a comma or an opening curly brace. Property-value pairs should be on their own line, with one tab of indentation and an ending semicolon. The closing brace should be flush left, using the same level of indentation as the opening selector.</li>
+</ul>
+<p>Correct:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+#selector-1,
+#selector-2,
+#selector-3 {
+	background: #fff;
+	color: #000;
+}
+</pre>
+<p>Incorrect:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+#selector-1, #selector-2, #selector-3 {
+	background: #fff;
+	color: #000;
+	}
+
+#selector-1 { background: #fff; color: #000; }
+</pre>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h2 class="toc-heading" id="selectors">Selectors <a href="#selectors" class="anchor">#</a></h2>
+<p>With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgement to create selectors that find the right balance between contributing to the overall style and layout of the DOM.</p>
+<ul>
+<li>Similar to the <a href="http://codex.wordpress.org/WordPress_Coding_Standards">WordPress Coding Standards</a> for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.</li>
+<li>Use human readable selectors that describe what element(s) they style.</li>
+<li>Attribute selectors should use double quotes around values</li>
+<li>Refrain from using over-qualified selectors, <code>div.container</code> can simply be stated as <code>.container</code></li>
+</ul>
+<p>Correct:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+#comment-form {
+	margin: 1em 0;
+}
+
+input[type=&quot;text&quot;] {
+	line-height: 1.1;
+}
+</pre>
+<p>Incorrect:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+#commentForm { /* Avoid camelcase. */
+	margin: 0;
+}
+
+#comment_form { /* Avoid underscores. */
+	margin: 0;
+}
+
+div#comment_form { /* Avoid over-qualification. */
+	margin: 0;
+}
+
+#c1-xr { /* What is a c1-xr?! Use a better name. */
+	margin: 0;
+}
+
+input[type=text] { /* Should be [type=&quot;text&quot;] */
+	line-height: 110% /* Also doubly incorrect */
+}
+</pre>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h2 class="toc-heading" id="properties">Properties <a href="#properties" class="anchor">#</a></h2>
+<p>Similar to selectors, properties that are too specific will hinder the flexibility of the design. Less is more. Make sure you are not repeating styling or introducing fixed dimensions (when a fluid solution is more acceptable).</p>
+<ul>
+<li>Properties should be followed by a colon and a space.</li>
+<li>All properties and values should be lowercase, except for font names and vendor-specific properties.</li>
+<li>Use hex code for colors, or rgba() if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: #fff instead of #FFFFFF.</li>
+<li>Use shorthand (except when overriding styles) for background, border, font, list-style, margin, and padding values as much as possible. (For a shorthand reference, see <a href="http://codex.wordpress.org/CSS_Shorthand">CSS Shorthand</a>.)</li>
+</ul>
+<h3 class="toc-heading" id="property-ordering">Property Ordering <a href="#property-ordering" class="anchor">#</a></h3>
+<blockquote><p>&#8220;Group like properties together, especially if you have a lot of them.&#8221;<br />
+&#8211; Nacin</p></blockquote>
+<p>Above all else, choose something that is meaningful to you and semantic in some way. Random ordering is chaos, not poetry. In WordPress Core, our choice is logical or grouped ordering, wherein properties are grouped by meaning and ordered specifically within those groups. The properties within groups are also strategically ordered to create transitions between sections, such as background directly before color. The baseline for ordering is:</p>
+<ul>
+<li>Display</li>
+<li>Positioning</li>
+<li>Box model</li>
+<li>Colors and Typography</li>
+<li>Other</li>
+</ul>
+<p>Things that are not yet used in core itself, such as CSS3 animations, may not have a prescribed place above but likely would fit into one of the above in a logical manner. Just as CSS is evolving, so our standards will evolve with it.</p>
+<p>Top/Right/Bottom/Left (TRBL/trouble) should be the order for any relevant properties (e.g. margin), much as the order goes in values. Corner specifiers (e.g. border-radius-*-*) should be top-left, top-right, bottom-right, bottom-left. This is derived from how shorthand values would be ordered.</p>
+<p>Example:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+#overlay {
+	position: absolute;
+	z-index: 1;
+	padding: 10px;
+	background: #fff;
+	color: #777;
+}
+</pre>
+<p>Another method that is often used, including by the Automattic/WordPress.com Themes Team, is to order properties alphabetically, with or without certain exceptions.</p>
+<p>Example:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+#overlay {
+	background: #fff;
+	color: #777;
+	padding: 10px;
+	position: absolute;
+	z-index: 1;
+}
+</pre>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h3 class="toc-heading" id="vendor-prefixes">Vendor Prefixes <a href="#vendor-prefixes" class="anchor">#</a></h3>
+<p>Updated on 2/13/2014, after <a href="https://core.trac.wordpress.org/changeset/27174">[27174]</a>:</p>
+<p>We use <a href="https://github.com/nDmitry/grunt-autoprefixer">grunt-autoprefixer</a> as a pre-commit tool to easily manage necessary browser prefixes, thus making the majority of this section moot. For those interested in following that output without using Grunt, vendor prefixes should go longest (-webkit-) to shortest (unprefixed). All other spacing remains as per the rest of standards.</p>
+<pre class="brush: css; title: ; notranslate" title="">
+.sample-output {
+	-webkit-box-shadow: inset 0 0 1px 1px #eee;
+	-moz-box-shadow: inset 0 0 1px 1px #eee;
+	box-shadow: inset 0 0 1px 1px #eee;
+}
+</pre>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h2 class="toc-heading" id="values">Values <a href="#values" class="anchor">#</a></h2>
+<p>There are numerous ways to input values for properties. Follow the guidelines below to help us retain a high degree of consistency.</p>
+<ul>
+<li>Space before the value, after the colon</li>
+<li>Do not pad parentheses with spaces</li>
+<li>Always end in a semicolon</li>
+<li>Use double quotes rather than single quotes, and only when needed, such as when a font name has a space.</li>
+<li>0 values should not have units unless necessary, such as with transition-duration.</li>
+<li>Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: <a href="http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/">http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/</a></li>
+<li>Use a leading zero for decimal values, including in rgba().</li>
+<li>Multiple comma-separated values for one property should be separated by either a space or a newline, including within rgba(). Newlines should be used for lengthier multi-part values such as those for shorthand properties like box-shadow and text-shadow. Each subsequent value after the first should then be on a new line, indented to the same level as the selector and then spaced over to left-align with the previous value.</li>
+</ul>
+<p>Correct:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+.class { /* Correct usage of quotes */
+	background-image: url(images/bg.png);
+	font-family: &quot;Helvetica Neue&quot;, sans-serif;
+}
+
+.class { /* Correct usage of zero values */
+	font-family: Georgia, serif;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5),
+					   0 1px 0 #fff;
+}
+</pre>
+<p>Incorrect:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+.class { /* Avoid missing space and semicolon */
+	background:#fff
+}
+
+.class { /* Avoid adding a unit on a zero value */
+	margin: 0px 0px 20px 0px;
+}
+</pre>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h2 class="toc-heading" id="media-queries">Media Queries <a href="#media-queries" class="anchor">#</a></h2>
+<p>Media queries allow us to gracefully degrade the DOM for different screen sizes. If you are adding any, be sure to test above and below the break-point you are targeting.</p>
+<ul>
+<li>It is generally advisable to keep media queries grouped by media at the bottom of the stylesheet.
+<ul>
+<li>An exception is made for the wp-admin.css file in core, as it is very large and each section essentially represents a stylesheet of its own. Media queries are therefore added at the bottom of sections as applicable.</li>
+</ul>
+</li>
+<li>Rule sets for media queries should be indented one level in.</li>
+</ul>
+<p>Example:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+@media all and (max-width: 699px) and (min-width: 520px) {
+
+		/* Your selectors */
+}
+</pre>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h2 class="toc-heading" id="commenting">Commenting <a href="#commenting" class="anchor">#</a></h2>
+<ul>
+<li>Comment, and comment liberally. If there are concerns about file size, utilize minified files and the SCRIPT_DEBUG constant. Long comments should manually break the line length at 80 characters.</li>
+<li>A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (1.0, 1.1, 2.0, etc.) aids in searching and jumping to a location.</li>
+<li>Comments should be formatted much as PHPDoc is. The <a href="http://cssdoc.net/">CSSDoc</a> standard is not necessarily widely accepted or used but some aspects of it may be adopted over time. Section/subsection headers should have newlines before and after. Inline comments should not have empty newlines separating the comment from the item to which it relates.</li>
+</ul>
+<p>For sections and subsections:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+/**
+* #.# Section title
+*
+* Description of section, whether or not it has media queries, etc.
+*/
+
+.selector {
+	float: left;
+}
+</pre>
+<p>For inline:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+/* This is a comment about this selector */
+
+.another-selector {
+	position: absolute;
+	top: 0 !important; /* I should explain why this is so !important */
+}
+</pre>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h2 class="toc-heading" id="best-practices">Best Practices <a href="#best-practices" class="anchor">#</a></h2>
+<p>Stylesheets tend to get long in length. Focus slowly gets lost whilst intended goals start repeating and overlapping. Writing smart code from the outset helps us retain the overview whilst remaining flexible throughout change.</p>
+<ul>
+<li>If you are attempting to fix an issue, attempt to remove code before adding more.</li>
+<li>Magic Numbers are unlucky. These are numbers that are used as quick fixes on a one-off basis. Example: <code>.box { margin-top: 37px }</code>.</li>
+<li>DOM will change over time, target the element you want to use as opposed to &#8220;finding it&#8221; through its parents. Example: Use <code>.highlight</code> on the element as opposed to <code>.highlight a</code> (where the selector is on the parent)</li>
+<li>Know when to use the height property. It should be used when you are including outside elements (such as images). Otherwise use line-height for more flexibility.</li>
+<li>Do not restate default property &amp; value combinations (for instance <code>display: block;</code> on block-level elements).</li>
+</ul>
+<p class="toc-jump"><a href="#top">Top &uarr;</a></p><h2 class="toc-heading" id="related-links">Related Links <a href="#related-links" class="anchor">#</a></h2>
+<ul>
+<li>Principles of writing consistent, idiomatic CSS: <a href="https://github.com/necolas/idiomatic-css">https://github.com/necolas/idiomatic-css</a></li>
+</ul>
+	</div>
+
+	
+			<div class="discussion" style="display: none">
+			<p>
+				<img alt='' src='http://1.gravatar.com/avatar/b32e62ad1eb58856ce70614e2ac72a56?s=16&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D16&amp;r=G' class='avatar avatar-16 photo' height='16' width='16' /> <a href='http://webcodingplace.com/' rel='external nofollow' class='url'>Rameez_Iqbal</a>, <img alt='' src='http://0.gravatar.com/avatar/2dc245d4cf9e5579dfb0e13e7dcb75db?s=16&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D16&amp;r=G' class='avatar avatar-16 photo' height='16' width='16' /> <a href='http://choycedesign.com' rel='external nofollow' class='url'>Mel Choyce</a>, <img alt='' src='http://1.gravatar.com/avatar/b252adba1a06b7a5628563bcc206987d?s=16&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D16&amp;r=G' class='avatar avatar-16 photo' height='16' width='16' /> <a href='http://plasisent.org' rel='external nofollow' class='url'>plasisent</a>, and 14 others are discussing.				<a href="#" class="show-comments">Toggle Comments</a>
+			</p>
+		</div>
+	
+	<div class="bottom-of-entry">&nbsp;</div>
+
+	
+
+<ul id="comments-4082" class="commentlist inlinecomments">
+		<li id="comment-8741" class="comment even thread-even depth-1">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/81bb7a65bc5b36126bfae0507239c10e?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://bluemandala.com' rel='external nofollow' class='url'>Dwenaus</a>			<span class="meta">
+				<abbr title="2012-07-30T20:02:53Z">8:02 pm <em>on</em> July 30, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8741" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8741" class="commentcontent"><p>wow, there is some really trippy CSS going on here:</p>
+<p>#selector-3 {</p>
+<p>     background: #fff;</p>
+<p>     color:<a href="http://core.trac.wordpress.org/ticket/000" rel="nofollow"> #000</a>;</p>
+<p>}</p>
+<p>then I realized it&#8217;s just auto-trac ticket replacement!</p>
+		</div>
+	<ul class="children">
+	<li id="comment-8742" class="comment odd alt depth-2">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/01cfe9feaafb068590891bbd1f6a7f5a?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/users/nacin/' rel='external nofollow' class='url'>Andrew Nacin</a>			<span class="meta">
+				<abbr title="2012-07-30T22:04:14Z">10:04 pm <em>on</em> July 30, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8742" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8742" class="commentcontent"><p>I went ahead and updated that plugin to only touch ticket numbers that were 4 or 5 characters long. Should avoid messing with 3- and 6-character color hex codes!</p>
+		</div>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li id="comment-8743" class="comment even thread-odd thread-alt depth-1">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/ddc339d9565077190a08a9e5da7a5f44?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://simpledream.net/' rel='external nofollow' class='url'>Lance Willett</a>			<span class="meta">
+				<abbr title="2012-08-02T20:42:10Z">8:42 pm <em>on</em> August 2, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8743" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8743" class="commentcontent"><p>This is super cool.</p>
+<p>Once it&#8217;s finalized could you merge it with the pre-existing <a href="http://codex.wordpress.org/CSS_Coding_Standards" rel="nofollow">CSS Coding Standards</a> on the Codex? I added that over 2 years ago and we&#8217;ve been using it for default themes since.</p>
+<p>Biggest differences are ordering of properties, comment format (standard on Codex is more strict), and the one line between rule blocks (no line in the Codex standard when in a grouping of similar rules).</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8744" class="comment odd alt thread-even depth-1">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/885c9f48988bfd9f008bbc1d13572510?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://www.noeltock.com' rel='external nofollow' class='url'>Noel Tock</a>			<span class="meta">
+				<abbr title="2012-08-06T01:13:17Z">1:13 am <em>on</em> August 6, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8744" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8744" class="commentcontent"><p>Updated!</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8745" class="comment even thread-odd thread-alt depth-1">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/99386ad4da1fa2ce7e64591ab74138f2?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://umbrovskis.com/?utm_source=wordpress.org&#038;utm_content=profileinfo&#038;utm_campaign=profi' rel='external nofollow' class='url'>Umbrovskis.com</a>			<span class="meta">
+				<abbr title="2012-10-11T16:32:24Z">4:32 pm <em>on</em> October 11, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8745" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8745" class="commentcontent"><p>is there any reason to &#8220;Avoid underscores&#8221;? As far as I can find answers in Google, there is no reason, unless we care about very,very old browsers before 2002.</p>
+<p>If there is, please refer to some source!</p>
+		</div>
+	<ul class="children">
+	<li id="comment-8746" class="comment odd alt depth-2">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/6506162ada6b700b151ad8a187f65842?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/users/helenyhou/' rel='external nofollow' class='url'>Helen Hou-Sandi</a>			<span class="meta">
+				<abbr title="2012-10-11T16:47:36Z">4:47 pm <em>on</em> October 11, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8746" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8746" class="commentcontent"><p>Because that&#8217;s our particular style <img src="http://make.wordpress.org/core/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> </p>
+		</div>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li id="comment-8747" class="comment even thread-even depth-1">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/7b11a7249b184432511380e502634582?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			wpcustom			<span class="meta">
+				<abbr title="2012-11-08T03:04:58Z">3:04 am <em>on</em> November 8, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8747" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8747" class="commentcontent"><p>Hi, Phil here, I&#8217;m doing my first review of a wp theme. The css will not validate after the second test. The 6 errors are below, can these be fixed? there are also 71 warnings(due to the 6 errors i suppose), also, does the css have to pass validation for a wp theme? Thanks wpcustom</p>
+<p>294 		Unknown pseudo-element or pseudo-class ::-webkit-search-decoration [-webkit-search-decoration]</p>
+<p>297 		Unknown pseudo-element or pseudo-class ::-moz-focus-inner [-moz-focus-inner]</p>
+<p>298 		Unknown pseudo-element or pseudo-class ::-moz-focus-inner [-moz-focus-inner]</p>
+<p>382 	.assistive-text 	Value Error : clip Invalid separator in shape definition. It must be a comma. : rect(1px 1px 1px 1px)</p>
+<p>674 	.page-links a, .more-link 	Value Error : background-image linear-gradient(rgba(240,240,240,0.8),rgba(210,210,210,0.8)) is not a background-image value : linear-gradient(rgba(240,240,240,0.8),rgba(210,210,210,0.8))</p>
+<p>1176 	.widget ul li 	Value Error : background-image linear-gradient(rgba(240,240,240,0.8),rgba(210,210,210,0.8)) is not a background-image value : linear-gradient(rgba(240,240,240,0.8),rgba(210,210,210,0.8))</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8748" class="pingback odd alt thread-odd thread-alt depth-1">
+		
+				<h4>
+			<a href='http://blog.teamtreehouse.com/10-tips-for-selling-premium-wordpress-theme' rel='external nofollow' class='url'>10 Tips for Building and Selling a Premium WordPress Theme - Treehouse Blog</a>			<span class="meta">
+				<abbr title="2012-12-12T19:49:55Z">7:49 pm <em>on</em> December 12, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8748" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8748" class="commentcontent"><p>[...] coding standards. �WordPress publishes two set of standards, one for HTML and PHP and another for CSS. You can also find some comprehensive standard guides on other [...]</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8749" class="pingback even thread-even depth-1">
+		
+				<h4>
+			<a href='http://webdesignadmin.tk/2012/12/12/10-tips-for-building-and-selling-a-premium-wordpress-theme/' rel='external nofollow' class='url'>10 Tips for Building and Selling a Premium WordPress Theme | WebDesignAdmin.tk</a>			<span class="meta">
+				<abbr title="2012-12-12T20:19:31Z">8:19 pm <em>on</em> December 12, 2012</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8749" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8749" class="commentcontent"><p>[...] coding standards. �WordPress publishes two set of standards, one for HTML and PHP and another for CSS. You can also find some comprehensive standard guides on other [...]</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8753" class="pingback odd alt thread-odd thread-alt depth-1">
+		
+				<h4>
+			<a href='http://code.garyjones.co.uk/style-sheet-header-improvements/' rel='external nofollow' class='url'>Style Sheet Header Improvements: Tidy up your WordPress Theme Details � Gary&#039;s Code</a>			<span class="meta">
+				<abbr title="2013-01-09T21:36:35Z">9:36 pm <em>on</em> January 9, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8753" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8753" class="commentcontent"><p>[...] plugin (the development version has a few extra fixes) on your theme. WordPress also has a set of CSS Coding Standards for the main portion of yout style [...]</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8763" class="pingback even thread-even depth-1">
+		
+				<h4>
+			<a href='http://code.garyjones.co.uk/understanding-css-shorthand-property-values/' rel='external nofollow' class='url'>Understanding CSS Shorthand Property Values � Gary&#039;s Code</a>			<span class="meta">
+				<abbr title="2013-01-09T21:37:36Z">9:37 pm <em>on</em> January 9, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8763" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8763" class="commentcontent"><p>[...] should be used in hex color codes (either is valid), though most of the examples are lowercase. The WordPress CSS Coding Standards say to use lowercase. This also means that all selectors, properties and values can be lowercase, [...]</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8755" class="pingback odd alt thread-odd thread-alt depth-1">
+		
+				<h4>
+			<a href='http://code.garyjones.co.uk/discussion-of-the-wordpress-css-coding-standards/' rel='external nofollow' class='url'>Discussion of the WordPress CSS Coding Standards � Gary&#039;s Code</a>			<span class="meta">
+				<abbr title="2013-01-09T21:38:35Z">9:38 pm <em>on</em> January 9, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8755" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8755" class="commentcontent"><p>[...] the time of writing, I&#8217;m aware that the CSS Coding Standards to which I refer are known to be out of date, but I raise my points [...]</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8756" class="pingback even thread-even depth-1">
+		
+				<h4>
+			<a href='http://www.yinpress.com/wordpress-theme-best-practices/' rel='external nofollow' class='url'>WordPress Theme Best Practices - YinPressYinPress</a>			<span class="meta">
+				<abbr title="2013-01-28T13:04:30Z">1:04 pm <em>on</em> January 28, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8756" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8756" class="commentcontent"><p>[...] easier to read, and produces a faster, leaner, website. WordPress has coding standards for CSS, PHP, and HTML. Until you are familiar with the coding standards, you should refer to these as you [...]</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8757" class="comment odd alt thread-odd thread-alt depth-1">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/ff14b24223233c3b96ad0469a9ff5174?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://www.suastex.com' rel='external nofollow' class='url'>suastex</a>			<span class="meta">
+				<abbr title="2013-02-22T12:46:07Z">12:46 pm <em>on</em> February 22, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8757" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8757" class="commentcontent"><p>Hi! would it be worth it to incorporate something about shorthand?</p>
+<p><a href="http://codex.wordpress.org/CSS_Shorthand" rel="nofollow">http://codex.wordpress.org/CSS_Shorthand</a></p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-8759" class="comment even thread-even depth-1">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/1cf0770522223715996d00a7fe911003?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://iandunn.name' rel='external nofollow' class='url'>Ian Dunn</a>			<span class="meta">
+				<abbr title="2013-03-09T18:04:36Z">6:04 pm <em>on</em> March 9, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8759" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8759" class="commentcontent"><p>The Selectors section says, </p>
+<p>&#8220;As in the WordPress Coding Standards [...] separate words with hyphens when naming selectors. Avoid [...] underscores.&#8221;</p>
+<p>But I think that conflicts with the WordPress Coding Standards article on the Codex. In the Naming Conventions section, it says, &#8220;Separate words via underscores&#8221;, and only mentions hyphens in the context of filenames.</p>
+<p>Is the general coding standards article only referring to PHP, and not HTML? It seems odd to me to use underscores in PHP, but hyphens in HTML/CSS, especially since there&#8217;s so much PHP and HTML intertwined in Core. You&#8217;d end up with lines of code that looked <a href="http://pastebin.com/iZ4tu9e6" rel="nofollow">http://pastebin.com/iZ4tu9e6</a>, where hyphens and underscores are mixed for the same piece of data.</p>
+<p>Since hyphens can&#8217;t be used in PHP variable names, would be better to standardize around always using underscores for PHP, HTML and CSS? Maybe it&#8217;s too late for that, though.</p>
+		</div>
+	<ul class="children">
+	<li id="comment-8760" class="comment odd alt depth-2">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/6506162ada6b700b151ad8a187f65842?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://helen.wordpress.com/' rel='external nofollow' class='url'>Helen Hou-Sandi</a>			<span class="meta">
+				<abbr title="2013-03-09T18:27:34Z">6:27 pm <em>on</em> March 9, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8760" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8760" class="commentcontent"><p>CSS uses hyphens itself: font-size, border-width, etc. And yes, the other coding standards are referring to PHP.</p>
+		</div>
+	<ul class="children">
+	<li id="comment-8761" class="comment even depth-3">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/1cf0770522223715996d00a7fe911003?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://iandunn.name' rel='external nofollow' class='url'>Ian Dunn</a>			<span class="meta">
+				<abbr title="2013-03-09T19:44:39Z">7:44 pm <em>on</em> March 9, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-8761" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-8761" class="commentcontent"><p>Ok, thanks for updating the wording in the Selectors section; it&#8217;s clearer now.</p>
+<p>Is there a WP naming convention for hyphens vs underscores in HTML? I couldn&#8217;t find any. I&#8217;m wondering what&#8217;s appropriate for the example I linked to above. I&#8217;m guessing hyphens in the id attribute (because it&#8217;ll be used as a CSS selector), but underscores in the name attribute (because it&#8217;ll be processed by PHP when the form is submitted) ?</p>
+		</div>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li id="comment-9352" class="comment byuser comment-author-kowen odd alt thread-odd thread-alt depth-1">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/73bf536f58a3f82752cc139f7b412d9e?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/kowen/' rel='external nofollow' class='url'>Kowen</a>			<span class="meta">
+				<abbr title="2013-07-26T22:09:04Z">10:09 pm <em>on</em> July 26, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-9352" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-9352" class="commentcontent"><p>It would be nice if we can download a generated handbook pdf to all of the items or each one. Thanks for the good content</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-11662" class="comment byuser comment-author-looimaster even thread-even depth-1">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/028aefb8b3a41d7b14e7970d1a60f4eb?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/looimaster/' rel='external nofollow' class='url'>Looimaster</a>			<span class="meta">
+				<abbr title="2013-11-19T08:45:38Z">8:45 am <em>on</em> November 19, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-11662" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-11662" class="commentcontent"><p>You say &#8220;Above all else, choose something that is meaningful to you and semantic in some way. Random ordering is chaos, not poetry. In WordPress Core, our choice is logical or grouped ordering, wherein properties are grouped by meaning and ordered specifically within those groups. The properties within groups are also strategically ordered to create transitions between sections, such as background directly before color. The baseline for ordering is [...]&#8221; but in WordPress core, not even a single CSS file in /wp-admin/ or /wp-includes/ follows any standard&#8230;&#8230; it&#8217;s chaos.</p>
+		</div>
+	<ul class="children">
+	<li id="comment-11664" class="comment byuser comment-author-helen bypostauthor odd alt depth-2">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/6506162ada6b700b151ad8a187f65842?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/helen/' rel='external nofollow' class='url'>Helen Hou-Sandi</a>			<span class="meta">
+				<abbr title="2013-11-19T15:19:14Z">3:19 pm <em>on</em> November 19, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-11664" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-11664" class="commentcontent"><p>Yes, we are aware, hence creating standards. See <a href="http://core.trac.wordpress.org/ticket/20570" rel="nofollow">http://core.trac.wordpress.org/ticket/20570</a>. Also see <a href="http://make.wordpress.org/core/2011/03/23/code-refactoring/" rel="nofollow">http://make.wordpress.org/core/2011/03/23/code-refactoring/</a> for why we don&#8217;t do refactoring for the sake of refactoring &#8211; we adhere to standards as new things are introduced.</p>
+		</div>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li id="comment-12089" class="comment byuser comment-author-wsaiful even thread-odd thread-alt depth-1">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/05925d6312ac72f8db6d696f93f56feb?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/wsaiful/' rel='external nofollow' class='url'>wsaiful</a>			<span class="meta">
+				<abbr title="2013-12-13T14:38:56Z">2:38 pm <em>on</em> December 13, 2013</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-12089" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-12089" class="commentcontent"><p>how i can check the code are standered or not?</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-13062" class="comment byuser comment-author-cramdesign odd alt thread-even depth-1">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/450738fdfba6c6100585b7787b7c855e?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/cramdesign/' rel='external nofollow' class='url'>cramdesign</a>			<span class="meta">
+				<abbr title="2014-03-13T03:01:18Z">3:01 am <em>on</em> March 13, 2014</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-13062" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-13062" class="commentcontent"><p><a href="http://make.wordpress.org/core/handbook/coding-standards/css/#values" rel="nofollow">http://make.wordpress.org/core/handbook/coding-standards/css/#values</a></p>
+<p>&#8220;Use double quotes rather than single quotes&#8221; but then goes on to use single quotes in the example.</p>
+		</div>
+	<ul class="children">
+	<li id="comment-13141" class="comment byuser comment-author-plasisent even depth-2">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/b252adba1a06b7a5628563bcc206987d?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/plasisent/' rel='external nofollow' class='url'>plasisent</a>			<span class="meta">
+				<abbr title="2014-03-31T08:13:24Z">8:13 am <em>on</em> March 31, 2014</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-13141" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-13141" class="commentcontent"><p>This confuses me, too.</p>
+		</div>
+	</li><!-- #comment-## -->
+	<li id="comment-13921" class="comment byuser comment-author-melchoyce odd alt depth-2">
+		
+		<img alt='' src='http://0.gravatar.com/avatar/2dc245d4cf9e5579dfb0e13e7dcb75db?s=32&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/melchoyce/' rel='external nofollow' class='url'>Mel Choyce</a>			<span class="meta">
+				<abbr title="2014-04-26T21:51:25Z">9:51 pm <em>on</em> April 26, 2014</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-13921" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-13921" class="commentcontent"><p>Good catch. Fixed.</p>
+		</div>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li id="comment-14153" class="comment byuser comment-author-rameez_iqbal even thread-odd thread-alt depth-1">
+		
+		<img alt='' src='http://1.gravatar.com/avatar/b32e62ad1eb58856ce70614e2ac72a56?s=32&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D32&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<h4>
+			<a href='http://profiles.wordpress.org/rameez_iqbal/' rel='external nofollow' class='url'>Rameez_Iqbal</a>			<span class="meta">
+				<abbr title="2014-05-06T14:24:35Z">2:24 pm <em>on</em> May 6, 2014</abbr>				<span class="actions">
+					<a class="thepermalink" href="http://make.wordpress.org/core/handbook/coding-standards/css/#comment-14153" title="Permalink">Permalink</a>
+					 | <a rel="nofollow" href="http://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">Log in to Reply</a>				</span>
+			</span>
+		</h4>
+		<div id="commentcontent-14153" class="commentcontent"><p>Hi, What is meant by &#8220;Add two blank lines between sections and one blank line between blocks in a section.&#8221;</p>
+		</div>
+	</li><!-- #comment-## -->
+</ul>
+
+			<div class="respond-wrap">
+												<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/core/handbook/coding-standards/css/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<p class="must-log-in">You must be <a href="https://make.wordpress.org/core/wp-login.php?redirect_to=http%3A%2F%2Fmake.wordpress.org%2Fcore%2Fhandbook%2Fcoding-standards%2Fcss%2F">logged in</a> to post a comment.</p>												</div><!-- #respond -->
+						</div></li>
+						</ul>
+
+		
+	</div> <!-- main -->
+
+</div> <!-- sleeve -->
+
+
+	<!-- On handbook pages, this gets called twice but will not display the second time. -->
+		<div class="clear"></div>
+
+</div> <!-- // wrapper -->
+
+<div id="notify"></div>
+
+<div id="help">
+	<dl class="directions">
+		<dt>c</dt><dd>compose new post</dd>
+		<dt>j</dt><dd>next post/next comment</dd>
+		<dt>k</dt> <dd>previous post/previous comment</dd>
+		<dt>r</dt> <dd>reply</dd>
+		<dt>e</dt> <dd>edit</dd>
+		<dt>o</dt> <dd>show/hide comments</dd>
+		<dt>t</dt> <dd>go to top</dd>
+		<dt>l</dt> <dd>go to login</dd>
+		<dt>h</dt> <dd>show/hide help</dd>
+		<dt>shift + esc</dt> <dd>cancel</dd>
+	</dl>
+</div>
+
+<div id="wporg-footer">
+	<div class="wrapper">
+		<ul>
+			<li><a href="//wordpress.org/about/" title="An introduction to the WordPress project">About</a></li>
+			<li><a href="//wordpress.org/news/" title="News and Updates">Blog</a></li>
+			<li><a href="//wordpress.org/hosting/" title="Recommended web hosting providers">Hosting</a></li>
+			<li><a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">Jobs</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="//wordpress.org/support/" title="Forums, documentation, and other resources">Support</a></li>
+						<li><a href="//make.wordpress.org/" title="Give back to WordPress through code, support, translation and more">Get Involved</a></li>
+			<li><a href="//learn.wordpress.org/" title="Workshops and training materials">Learn</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="//wordpress.org/showcase/" title="Some of the best WordPress sites on the Web">Showcase</a></li>
+			<li><a href="//wordpress.org/plugins/" title="Add extra functionality to WordPress">Plugins</a></li>
+			<li><a href="//wordpress.org/themes/" title="Make your WordPress pretty">Themes</a></li>
+			<li><a href="//wordpress.org/ideas/" title="Share your ideas for improving WordPress">Ideas</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="http://central.wordcamp.org/" title="Find a WordPress event near you">WordCamp</a></li>
+			<li><a href="http://wordpress.tv/" title="Videos, tutorials, and WordCamp sessions">WordPress.TV</a></li>
+			<li><a href="//buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress</a></li>
+			<li><a href="//bbpress.org/" title="Fast, slick forums built on WordPress">bbPress</a></li>
+		</ul>
+
+		<ul>
+			<li><a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WordPress hosting">WordPress.com</a></li>
+			<li><a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a></li>
+			<li><a href="//wordpress.org/about/privacy/" title="WordPress.org Privacy Policy">Privacy</a></li>
+			<li><a href="//wordpress.org/about/license/" title="WordPress is open source software">License / GPLv2</a></li>
+		</ul>
+
+		<ul>
+			<li>
+				<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:135px; height:20px;"></iframe>
+			</li>
+			<li>
+				<iframe src="//www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=135&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:135px; height:21px;" allowTransparency="true"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<h6 class="aligncenter">Code is Poetry</h6>
+</div>
+
+
+<script type="text/javascript">
+  var _qevents = _qevents || [];
+  (function() {
+   var elem = document.createElement('script');
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge")
+               + ".quantserve.com/quant.js";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem, scpt);
+  })();
+</script>
+<script type="text/javascript">_qevents.push( { qacct:"p-18-mFEk4J448M"} );</script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!-- 131 queries. 0.677 seconds -->
+
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+	<div style="display:none">
+	<div class="grofile-hash-map-b32e62ad1eb58856ce70614e2ac72a56">
+	</div>
+	<div class="grofile-hash-map-2dc245d4cf9e5579dfb0e13e7dcb75db">
+	</div>
+	<div class="grofile-hash-map-b252adba1a06b7a5628563bcc206987d">
+	</div>
+	<div class="grofile-hash-map-450738fdfba6c6100585b7787b7c855e">
+	</div>
+	<div class="grofile-hash-map-05925d6312ac72f8db6d696f93f56feb">
+	</div>
+	<div class="grofile-hash-map-6506162ada6b700b151ad8a187f65842">
+	</div>
+	<div class="grofile-hash-map-028aefb8b3a41d7b14e7970d1a60f4eb">
+	</div>
+	<div class="grofile-hash-map-73bf536f58a3f82752cc139f7b412d9e">
+	</div>
+	<div class="grofile-hash-map-1cf0770522223715996d00a7fe911003">
+	</div>
+	<div class="grofile-hash-map-6506162ada6b700b151ad8a187f65842">
+	</div>
+	<div class="grofile-hash-map-ff14b24223233c3b96ad0469a9ff5174">
+	</div>
+	<div class="grofile-hash-map-7b11a7249b184432511380e502634582">
+	</div>
+	<div class="grofile-hash-map-99386ad4da1fa2ce7e64591ab74138f2">
+	</div>
+	<div class="grofile-hash-map-885c9f48988bfd9f008bbc1d13572510">
+	</div>
+	<div class="grofile-hash-map-ddc339d9565077190a08a9e5da7a5f44">
+	</div>
+	<div class="grofile-hash-map-01cfe9feaafb068590891bbd1f6a7f5a">
+	</div>
+	<div class="grofile-hash-map-81bb7a65bc5b36126bfae0507239c10e">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		jQuery( document ).ready( function( $ ) {
+			function hideComments() {
+				$('.commentlist').hide();
+				$('.discussion').show();
+			}
+			function showComments() {
+				$('.commentlist').show();
+				$('.discussion').hide();
+			}
+			
+			$( "#togglecomments" ).click( function() {
+				if ( $( '.commentlist' ).css( 'display' ) == 'none' ) {
+					showComments();
+				} else {
+					hideComments();
+				}
+				return false;
+			});
+		});
+	/* ]]> */
+	</script><script type='text/javascript' src='http://make.wordpress.org/core/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js?ver=3.0.9'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://make.wordpress.org/core/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://make.wordpress.org/core/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<link rel='stylesheet' id='wpcom-notes-admin-bar-css'  href='http://s0.wp.com/wp-content/mu-plugins/notes/admin-bar-v2.css?ver=2.4.3-201420' type='text/css' media='all' />
+<link rel='stylesheet' id='noticons-css'  href='http://s0.wp.com/i/noticons/noticons.css?ver=2.4.3-201420' type='text/css' media='all' />
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/admin-bar.min.js?ver=4.0-alpha'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201420'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2014Mayaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.0-alpha'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/underscore.min.js?ver=1.6.0'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-includes/js/backbone.min.js?ver=1.1.2'></script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/js/mustache.js?ver=2.4.3-201420'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/plugins/jetpack/_inc/spin.js?ver=1.3'></script>
+<script type='text/javascript' src='http://make.wordpress.org/core/wp-content/plugins/jetpack/_inc/jquery.spin.js?ver=1.3'></script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/mu-plugins/notes/notes-common-v2.js?ver=2.4.3-201420'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/mu-plugins/notes/admin-bar-v2.js?ver=2.4.3-201420'></script>
+
+	<script src="http://stats.wordpress.com/e-201420.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.4.3',blog:'38254163',post:'4082',tz:'0'});
+	var load_cmc = function(){linktracker_init(38254163,4082,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>		<div id="wpadminbar" class="nojq nojs" role="navigation">
+			<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+			<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="https://make.wordpress.org/core/wp-admin/about.php" title="About WordPress"><span class="ab-icon"></span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="https://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="http://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="https://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="http://make.wordpress.org/core/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" /><input type="submit" class="adminbar-button" value="Search"/></form></div>		</li>
+		<li id="wp-admin-bar-register"><a class="ab-item"  href="//wordpress.org/support/register.php">Register</a>		</li>
+		<li id="wp-admin-bar-log-in"><a class="ab-item"  href="https://make.wordpress.org/core/wp-login.php">Log In</a>		</li>
+		<li id="wp-admin-bar-notes" class="menupop"><div class="ab-item ab-empty-item" ><span id="wpnt-notes-unread-count" class="wpnt-loading wpn-read">
+					<span class="noticon noticon-notification"></span>
+					</span></div><div id="wpnt-notes-panel" style="display:none" lang="en_US" dir="ltr"><div class="wpnt-notes-panel-header"><span class="wpnt-notes-header">Notifications</span><span class="wpnt-notes-panel-link"></span></div></div>		</li></ul>			</div>
+					</div>
+
+		</body>
+</html>
